@@ -14,8 +14,8 @@
 #define TURN_ON            LOW
 #define TURN_OFF           HIGH
 
-#define MY_SSID            "*** YOUR SSID GOES HERE ***"
-#define MY_WEP_PASSWORD    "*** YOUR WI-FI PASSWORD GOES HERE ***"
+#define MY_SSID            "p16504"
+#define MY_WEP_PASSWORD    "A4BEB3B8EC"
 
 #define BROKER             "quickstart.messaging.internetofthings.ibmcloud.com"
 #define TOPIC              "iot-2/evt/status/fmt/json"
@@ -28,7 +28,7 @@
 */
 
 char message[128];
-#define DELAY_BT_READINGS  15 // Delay time in seconds between messages
+#define DELAY_BT_READINGS  180 // Delay time in seconds between messages
 
 WiFiClient client; int port = 1883;
 PubSubClient clientPS(client);
@@ -49,7 +49,7 @@ void setup() {
   }
 
   if (WiFi.status() == WL_NO_SHIELD) {
-    Serial.println("No WiFi shield");
+    Serial.println("No WiFi capability");
     while (true);
   }
   
@@ -91,19 +91,6 @@ void loop() {
   digitalWrite(BLUE_LED_PIN, TURN_OFF);
 
   Serial.println ("Loop: delay");
-  /*
-  for (int i = 0; i < DELAY_BT_READINGS; ++i) {
-    delay (1000);
-    if (i && i%20 == 0) {
-      Serial.println ("Check connectivity...");
-      boolean st = clientPS.loop();
-      if (!st) {
-        Serial.print("Lost connection, i = "); Serial.println (i);
-        break;
-      }
-    }
-  }
-  */
   delay (DELAY_BT_READINGS * 1000);
   Serial.println ("Exit loop");
 }
@@ -112,9 +99,9 @@ void connect_to_MQTT() {
   Serial.println ("Connect to MQTT");
   ++connects;
 
-  connect_to_WiFi();
-
   digitalWrite(RED_LED_PIN, TURN_ON);
+  
+  connect_to_WiFi();
   
   if (!clientPS.connected()) {
     Serial.println("Connect to broker");
