@@ -35,7 +35,7 @@ Watson if you'd like to do that. A few other random notes about this sketch:
    the connection alive in between data transmissions. With the ESP8266 on the other hand, that seemed to make
    it much less stable, which is why that code is commented out. I need to look into this in more detail.
 3. I have a 350 mAH battery attached to my Feather. Starting from a full charge (4.20 V), it's been able to keep
-   this sketch running for 3 hours (3.71 V after 3 hours). In that time, the re-connection logic in the sketch
+   this sketch running for 3 hours (3.72 V after 3 hours). In that time, the re-connection logic in the sketch
    has not kicked in once -- the sketch has been happily running with its original connection the whole time.
    That is, the "connects" variable, which is incremented every time the sketch decides that it has to tear down
    and rebuild the connection to the MQTT broker, still has a value of 1.
