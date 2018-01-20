@@ -21,6 +21,7 @@ make this work. If this one works, you're rocking.
 Finally I used the MQTT_Watson script to write to the Watson IoT platform. The sketch for that also needs
 your SSID and password. There are commented-out lines that allow you to test with mosquitto.org rather than
 Watson if you'd like to do that. A few other random notes about this sketch:
+
 0. There's some Watson IoT setup necessary to make this work -- specifically you have to create the device
    that's mentioned in the CLIENT_ID, and you will therefore have to change the CLIENT_ID to match your own
    device identifier. After doing that, you can see your data via a URL like this (also has the device ID in it):
