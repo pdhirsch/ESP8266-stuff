@@ -37,11 +37,10 @@ Watson if you'd like to do that. A few other random notes about this sketch:
 1. The WiFi.begin() call is a bit different from the Arduino version if you use WEP (as I do). With the "standard"
    Arduino WiFi library you have to pass in an additional argument, your WEP key number. That's not needed with
    this WEP library -- WEP and WPA work the same, just two arguments in both cases.
-2. [Removed]
-3. I have a 350 mAH battery attached to my Feather. Starting from a full charge (4.20 V), it's been able to keep
+2. I have a 350 mAH battery attached to my Feather. Starting from a full charge (4.20 V), it's been able to keep
    this sketch running for 3 hours (3.72 V after 3 hours). In that time, the re-connection logic in the sketch
    has not kicked in once -- the sketch has been happily running with its original connection the whole time.
    That is, the "connects" variable, which is incremented every time the sketch decides that it has to tear down
    and rebuild the connection to the MQTT broker, still has a value of 1.
-4. As noted in the sketch, the blue LED will turn on when it's sending data to the MQTT broker (once every 15
+3. As noted in the sketch, the blue LED will turn on when it's sending data to the MQTT broker (once every 15
    seconds), and the red LED lights up if it detects a connection problem and has to re-connect.
