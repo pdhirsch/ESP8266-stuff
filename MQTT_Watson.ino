@@ -14,8 +14,8 @@
 #define TURN_ON            LOW
 #define TURN_OFF           HIGH
 
-#define MY_SSID            "p16504"
-#define MY_WEP_PASSWORD    "A4BEB3B8EC"
+#define MY_SSID            "*** YOUR SSID HERE ***"
+#define MY_WEP_PASSWORD    "*** YOUR WI-FI PASSWORD HERE ***"
 
 #define BROKER             "quickstart.messaging.internetofthings.ibmcloud.com"
 #define TOPIC              "iot-2/evt/status/fmt/json"
