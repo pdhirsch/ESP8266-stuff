@@ -37,10 +37,7 @@ Watson if you'd like to do that. A few other random notes about this sketch:
 1. The WiFi.begin() call is a bit different from the Arduino version if you use WEP (as I do). With the "standard"
    Arduino WiFi library you have to pass in an additional argument, your WEP key number. That's not needed with
    this WEP library -- WEP and WPA work the same, just two arguments in both cases.
-2. During the delay between sending data readings to the MQTT broker, I used to call PubSubClient.loop() in
-   the Arduino version of this sketch (used with the ATWINC1500 Wi-Fi chip), because that seemed to help keep
-   the connection alive in between data transmissions. With the ESP8266 on the other hand, that seemed to make
-   it much less stable, which is why that code is commented out. I need to look into this in more detail.
+2. [Removed]
 3. I have a 350 mAH battery attached to my Feather. Starting from a full charge (4.20 V), it's been able to keep
    this sketch running for 3 hours (3.72 V after 3 hours). In that time, the re-connection logic in the sketch
    has not kicked in once -- the sketch has been happily running with its original connection the whole time.
