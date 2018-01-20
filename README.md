@@ -13,7 +13,14 @@ I started with the Blink sketch, as usual. Note that the ESP8266 I/O pins are ac
 as on the Arduino, so a LOW digital write turns an LED on, and HIGH turns it off.
 
 Then I added a TMP36 temperature sensor; the TMP36 sketch shows that you can do analog input, and that you
-can read serial output.
+can read serial output. If you look at the code you'll see that I multiply the voltage reading by .977 for
+no apparent reason. The reason is, the ADC isn't terribly accurate (there are standalone precision ADC chips
+that cost more than an ESP8266 chip -- it's OK for the price but what do you expect from a built-in ADC on
+a low-cost chip :-) Anyway, I saw a few posts on ESP8266 forums where people were measuring voltage with a
+known-good voltmeter and adjusting their readings based on that -- the claim is that the ADC error is roughly
+linear. In my case, multiplying the ESP8266's reading by .977 makes it very close to what I measure when I
+connect a multimeter to the TMP36's output pin, so that's why I do it. Otherwise, the readings are consistently
+high.
 
 Next I ran the Web Client sample, almost unmodified. You have to enter your own SSID and Wi-Fi password to
 make this work. If this one works, you're rocking.
