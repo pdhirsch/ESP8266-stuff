@@ -5,9 +5,9 @@ I followed the setup instructions at:
 
 You have to install a serial/USB driver, and add the ESP8266 board to your Arduino IDE. After those one-time
 startup steps, working with the ESB8266 is very similar to working with an Arduino.
--- The only problem I ran into was that at first I was using a power-only microUSB cable (without knowing it).
-   Those are commonly used to recharge batteries and they look identical to data-capable cables from the
-   outside, but they don't work to upload sketches. Make sure you have a data-capable USB cable!
+The only problem I ran into was that at first I was using a power-only microUSB cable (without knowing it).
+Those are commonly used to recharge batteries and they look identical to data-capable cables from the
+outside, but they don't work to upload sketches. Make sure you have a data-capable USB cable!
 
 I started with the Blink sketch, as usual. Note that the ESP8266 I/O pins are active low, not active high
 as on the Arduino, so a LOW digital write turns an LED on, and HIGH turns it off.
