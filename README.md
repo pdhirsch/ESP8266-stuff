@@ -25,7 +25,7 @@ high.
 Next I ran the Web Client sample, almost unmodified. You have to enter your own SSID and Wi-Fi password to
 make this work. If this one works, you're rocking.
 
-Finally I used the MQTT_Watson script to write to the Watson IoT platform. The sketch for that also needs
+Finally I used the MQTT_Watson sketch to write to the Watson IoT platform. The sketch for that also needs
 your SSID and password. There are commented-out lines that allow you to test with mosquitto.org rather than
 Watson if you'd like to do that. A few other random notes about this sketch:
 
@@ -44,3 +44,10 @@ Watson if you'd like to do that. A few other random notes about this sketch:
    and rebuild the connection to the MQTT broker, still has a value of 1.
 3. As noted in the sketch, the blue LED will turn on when it's sending data to the MQTT broker (once every 15
    seconds), and the red LED lights up if it detects a connection problem and has to re-connect.
+
+The MQTT_Watson LowPower sketch uses the "deep sleep" feature. It connects to MQTT, takes a temperature reading
+and sends it to the MQTT broker, then goes to sleep for 2 minutes. When it wakes up, it starts over again. This
+requires one additional jumper (connect GPIO #16 to RESET) but seems to reduce power consumption by about 90%.
+It draws only about 8 mA while sleeping -- I think that's the serial chip which I don't think you can put to
+sleep. I have a 350 mAH battery that can run the non-LowPower version of this sketch for about 3 hours; with the
+LowPower version it looks like it will last about a day.
